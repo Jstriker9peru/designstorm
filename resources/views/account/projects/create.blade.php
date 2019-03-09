@@ -27,6 +27,21 @@
                     <input type="text" name="title" />
                   </div>
                 </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="title">
+                      Active
+                    </label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <select name="active">
+                      <option value="0">No</option>
+                      <option value="1">Yes</option>
+                    </select>
+                  </div>
+                </div>
                 <button type="submit">Save</button>
               </form>
             </div>

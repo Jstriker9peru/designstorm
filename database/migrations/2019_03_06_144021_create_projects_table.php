@@ -17,6 +17,7 @@ class CreateProjectsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->integer('user_id');
+            $table->boolean('active');
             $table->timestamps();
         });
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use GuzzleHttp\Client;
+use App\Project;
 
 
 class PageController extends Controller
@@ -33,8 +34,16 @@ class PageController extends Controller
         $data = $res->getBody();        
         $data = json_decode($data);
         $filteredData = $data->projects;
-        
+
+        $inspirationArray = Project::where('user_id', Auth::id())->where('active', 1)->first();
+        $inspirationArray = $inspirationArray->inspirations;
+        $inspiArray = [];
+
+        foreach ($inspirationArray as $image) {
+            array_push($inspiArray, $image->image_info);
+        }
+
         $user = Auth::user();
-        return view('pages/results', compact('user', 'filteredData', 'keyword'));
+        return view('pages/results', compact('user', 'filteredData', 'keyword', 'inspiArray'));
     }
 }

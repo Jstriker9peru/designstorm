@@ -28,7 +28,10 @@
                         $codedUrl = urlencode($inspiration->covers->original);
                         @endphp
                         <a href="/projects/inspiration/{{$inspiration->id}}/add?image_url={{$codedUrl}}">
-                          <div class="add-btn ">
+                          <div class="add-btn 
+                          @if(in_array($inspiration->id, $inspiArray))
+                            active 
+                          @endif">
                             <i class="fa fa-check" aria-hidden="true"></i>
                           </div>
                         </a>
