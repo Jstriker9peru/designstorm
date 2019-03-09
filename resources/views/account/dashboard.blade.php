@@ -24,10 +24,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
   <script>
     var ctx = document.getElementById("myChart").getContext('2d');
+    var allNames = <?php echo json_encode($allProjectNames); ?>;
     var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+    labels: allNames,
     datasets: [{
     label: '# of Votes',
     data: [12, 19, 3, 5, 2, 3],
